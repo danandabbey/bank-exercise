@@ -67,9 +67,7 @@ fn main() {
     catalog.add(podcast);
     catalog.add(placeholder);
 
-    let item = catalog.get_by_index(40);
-
-    match item {
+    match catalog.get_by_index(40) {
         Some(value) => {
             println!("Item: {:#?}", value)
         }
