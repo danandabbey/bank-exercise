@@ -20,9 +20,9 @@ fn main() {
     catalog.add(placeholder);
     catalog.add(movie);
 
-    match catalog.get_by_index(40) {
+    match catalog.get_by_index(3) {
         Some(value) => {
-            println!("Item: {:#?}", value)
+            println!("{:#?}", value)
         }
         None => {
             println!("No item at that index.")
