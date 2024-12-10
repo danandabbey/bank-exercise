@@ -7,6 +7,10 @@ fn main() {
         title: String::from("dan"),
     };
     let podcast = Media::Podcast(10);
+    let movie = Media::Movie {
+        title: String::from("bobs adventures"),
+        director: String::from("bob"),
+    };
     let placeholder = Media::Placeholder;
 
     let mut catalog = Catalog::new();
@@ -14,6 +18,7 @@ fn main() {
     catalog.add(audiobook);
     catalog.add(podcast);
     catalog.add(placeholder);
+    catalog.add(movie);
 
     match catalog.get_by_index(40) {
         Some(value) => {
