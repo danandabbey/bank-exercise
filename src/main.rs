@@ -1,58 +1,6 @@
-#[derive(Debug)]
-enum Media {
-    Book { title: String, author: String },
-    Movie { title: String, director: String },
-    Audiobook { title: String },
-    Podcast(u32),
-    Placeholder,
-}
-
-impl Media {
-    fn print(&self) {
-        print!("{:#?}", self)
-    }
-
-    fn description(&self) -> String {
-        match self {
-            Media::Book { title, author } => {
-                format!("Book: {},{}", title, author)
-            }
-            Media::Movie { title, director } => {
-                format!("Movie: {},{}", title, director)
-            }
-            Media::Audiobook { title } => {
-                format!("Audiobook: {}", title)
-            }
-            Media::Podcast(ep) => {
-                format!("Podcast: {}", ep)
-            }
-            Media::Placeholder => {
-                format!("Placeholder")
-            }
-        }
-    }
-}
-#[derive(Debug)]
-struct Catalog {
-    items: Vec<Media>,
-}
-
-impl Catalog {
-    fn new() -> Self {
-        Catalog { items: vec![] }
-    }
-
-    fn add(&mut self, media: Media) {
-        self.items.push(media);
-    }
-    fn get_by_index(&self, index: usize) -> Option<&Media> {
-        if self.items.len() > index {
-            Some(&self.items[index])
-        } else {
-            None
-        }
-    }
-}
+mod content;
+use content::catalog::Catalog;
+use content::media::Media;
 
 fn main() {
     let audiobook = Media::Audiobook {
